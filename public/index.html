@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Task Manager</h1>
+
+  <!-- ADD TASK -->
+  <div class="form">
+    <input type="text" id="title" placeholder="Task Title">
+    <input type="text" id="description" placeholder="Description">
+
+    <select id="status">
+      <option>To Do</option>
+      <option>In Progress</option>
+      <option>Completed</option>
+    </select>
+
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <!-- FILTER + SEARCH -->
+  <div class="controls">
+    <select id="filterStatus" onchange="loadTasks()">
+      <option value="">All</option>
+      <option>To Do</option>
+      <option>In Progress</option>
+      <option>Completed</option>
+    </select>
+
+    <input type="text" id="search" placeholder="Search..." onkeyup="loadTasks()">
+  </div>
+
+  <!-- TASK LIST -->
+  <ul id="taskList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
