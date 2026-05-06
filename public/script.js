@@ -1,6 +1,5 @@
 const API = "/tasks";
 
-// LOAD TASKS
 async function loadTasks() {
     let url = API;
 
@@ -30,6 +29,7 @@ async function loadTasks() {
         }
 
         li.innerHTML = `
+            <strong>ID:</strong> ${task.id}<br>
             <strong>${task.title}</strong> - ${task.status}<br>
             <small>${task.description}</small><br>
 
@@ -41,7 +41,6 @@ async function loadTasks() {
     });
 }
 
-// ADD TASK
 async function addTask() {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
@@ -67,7 +66,6 @@ async function addTask() {
     loadTasks();
 }
 
-// DELETE TASK
 async function deleteTask(id) {
     await fetch(`${API}/${id}`, {
         method: "DELETE"
@@ -76,7 +74,6 @@ async function deleteTask(id) {
     loadTasks();
 }
 
-// MARK COMPLETE
 async function markComplete(id) {
     await fetch(`${API}/${id}`, {
         method: "PUT",
@@ -89,5 +86,4 @@ async function markComplete(id) {
     loadTasks();
 }
 
-// INITIAL LOAD
 loadTasks();
